@@ -1,8 +1,8 @@
 # Applied Statistics Case Study: Classical Inference on Multivariate Environmental Data
 
-This repository walks through the full classical statistical inference pipeline — model
+This repository walks through the full classical statistical inference pipeline - model
 specification, fitting, assumption checking, diagnostics, dimensionality reduction, and
-robust re-estimation — applied end-to-end to a real multivariate dataset. The
+robust re-estimation - applied end-to-end to a real multivariate dataset. The
 environmental subject matter (state-level water pollution and landmass) is the vehicle;
 the focus is the statistical methodology and what each diagnostic tells you when its
 assumptions hold or break.
@@ -45,11 +45,11 @@ set of predictors and trust the resulting inference.
   original coefficient estimates.
 - **Robust regression (Huber M-estimator).** Re-fits the linear model with a loss
   function that down-weights extreme residuals. Used as a sanity check after the
-  normality assumption fails — if the OLS and robust coefficients disagree, the OLS fit
+  normality assumption fails - if the OLS and robust coefficients disagree, the OLS fit
   was being driven by a few high-leverage points.
 
-This same diagnostic stack — fit a linear model, check LINE, decompose the predictor
-covariance, refit robustly — is what most applied work in neural data analysis (firing
+This same diagnostic stack - fit a linear model, check LINE, decompose the predictor
+covariance, refit robustly - is what most applied work in neural data analysis (firing
 rate regressions, GLMs on spike counts, fMRI general linear models) and multivariate
 time series analysis actually runs under the hood.
 
@@ -83,7 +83,7 @@ time series analysis actually runs under the hood.
   correlation in the residuals) and Breusch–Pagan p = 0.996 (no evidence of
   heteroskedasticity). Of the four LINE conditions, only normality is violated.
 - **Dimensionality reduction does not rescue the fit.** Refitting OLS on the top SVD
-  components yields R² = 0.012, p = 0.753 — the predictors are highly collinear (the
+  components yields R² = 0.012, p = 0.753 - the predictors are highly collinear (the
   five area variables are near-linearly dependent), but no low-dimensional projection
   of them explains the response either. A Huber robust re-fit confirms the same
   conclusion with a significant intercept and no significant landmass slopes,
@@ -100,17 +100,17 @@ feature set.
 ![Tableau visualizations of state-level pollution and landmass](Tableau_Visuals.png)
 
 Choropleths produced in Tableau from `land_and_pollution.csv` (exported from the
-notebook) show pollution per unit area across states — Missouri and Idaho stand out as
+notebook) show pollution per unit area across states - Missouri and Idaho stand out as
 high pollution-per-area outliers, which is consistent with the heavy-tailed residual
 distribution flagged by the Anderson–Darling test.
 
 ## Files
 
-- `Water_Pollution_Project.ipynb` — full analysis notebook (cleaning, EDA, OLS, LINE
+- `Water_Pollution_Project.ipynb` - full analysis notebook (cleaning, EDA, OLS, LINE
   diagnostics, SVD, robust regression).
-- `State_Statistics_Data.csv` — raw per-state pollution data.
-- `Tableau_Visuals.png` — exported choropleth dashboard.
-- `White_Paper.pdf` — written summary of the project and findings.
+- `State_Statistics_Data.csv` - raw per-state pollution data.
+- `Tableau_Visuals.png` - exported choropleth dashboard.
+- `White_Paper.pdf` - written summary of the project and findings.
 
 ---
 
